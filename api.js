@@ -1,0 +1,53 @@
+var express = require('express')
+var app = express()
+const api = express.Router()
+function pigLatin(str) {
+  str = str.toLowerCase()
+  const vowels = ['a', 'e', 'i', 'o', 'u']
+  let vowelIndex = 0
+  if (vowels.includes(str[0])) {
+    // If first letter is a vowel
+    return str + 'way'
+  } else {
+    // If the first letter is a consonant
+    for (let char of str) {
+      if (vowels.includes(char)) {
+        vowelIndex = str.indexOf(char)
+        break
+      }
+    }
+    return str.slice(vowelIndex) + str.slice(0, vowelIndex) + 'ay'
+  }
+}
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  )
+  next()
+})
+
+api.get('/rick', (req, res) => {
+  res.writeHead(302, {
+    Location: 'https://rickroll.now.sh'
+  })
+  res.end()
+})
+
+api.get('/:param', (req, res) => {
+  res.send(pigLatin(req.params.param))
+})
+api.get('/', (req, res) => {
+  res.send(
+    `
+Put something after the / to change it to pig latin \n
+🐷
+github.com/joshkmartinez/piglatin
+    `
+  )
+})
+app.use('/', api)
+app.listen(3000, () => {
+  //console.log('Server running on port 3000')
+})

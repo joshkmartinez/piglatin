@@ -1,0 +1,10 @@
+{
+  "name": "Pig Latin",
+  "alias": ["piglatin", "pig-latin", "latin"],
+  "version": 2,
+  "builds": [{ "src": "api.js", "use": "@now/node-server" }],
+  "routes": [{ "src": "/(.*)", "dest": "api.js" }],
+  "github": {
+    "silent": true
+  }
+}
