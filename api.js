@@ -2,7 +2,8 @@ var express = require('express')
 var app = express()
 const api = express.Router()
 function pigLatin(str) {
-  if str[0]!= (str.toLowerCase())[0]{
+  const strl=str.toLowerCase()
+  if str[0]!= strl[0]{
     const caps=True 
   }
   else{
