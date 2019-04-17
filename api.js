@@ -2,13 +2,13 @@ var express = require('express')
 var app = express()
 const api = express.Router()
 function pigLatin(str) {
-  const strl = str.toLowerCase()
+  let strl = str.toLowerCase()
   let caps = false
   if (str[0] != strl[0]) {
     caps = true
   }
   str = str.toLowerCase()
-  const vowels = ['a', 'e', 'i', 'o', 'u']
+  let vowels = ['a', 'e', 'i', 'o', 'u']
   let vowelIndex = 0
   if (vowels.includes(str[0])) {
     // If first letter is a vowel
@@ -21,9 +21,9 @@ function pigLatin(str) {
         break
       }
     }
-    const toReturn = str.slice(vowelIndex) + str.slice(0, vowelIndex) + 'ay'
+    let toReturn = str.slice(vowelIndex) + str.slice(0, vowelIndex) + 'ay'
     if (caps) {
-      const firstLetter = toReturn[0]
+      let firstLetter = toReturn[0]
       toReturn = toReturn.slice(1)
       toReturn = firstLetter.toUpperCase() + toReturn
     }
