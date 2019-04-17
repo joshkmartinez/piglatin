@@ -3,7 +3,7 @@ var app = express()
 const api = express.Router()
 function pigLatin(str) {
   const strl=str.toLowerCase()
-  if str[0]!= strl[0]{
+  if (str[0]!= strl[0]){
     const caps=True 
   }
   else{
@@ -25,7 +25,7 @@ function pigLatin(str) {
       }
     }
     const toReturn=str.slice(vowelIndex) + str.slice(0, vowelIndex) + 'ay'
-    if caps == True{
+    if (caps == True){
       const firstLetter=toReturn[0]
       toReturn=toReturn.slice(1);
       toReturn=firstLetter.toUpperCase()+toReturn
