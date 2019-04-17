@@ -2,6 +2,14 @@ var express = require('express')
 var app = express()
 const api = express.Router()
 function pigLatin(str) {
+  const strl=str.toLowerCase()
+  if str[0]!= strl[0]{
+    const caps=True 
+  }
+  else{
+    const caps=False
+  }
+  
   str = str.toLowerCase()
   const vowels = ['a', 'e', 'i', 'o', 'u']
   let vowelIndex = 0
@@ -16,8 +24,15 @@ function pigLatin(str) {
         break
       }
     }
-    return str.slice(vowelIndex) + str.slice(0, vowelIndex) + 'ay'
+    const toReturn=str.slice(vowelIndex) + str.slice(0, vowelIndex) + 'ay'
+    if caps == True{
+      const firstLetter=toReturn[0]
+      toReturn=toReturn.slice(1);
+      toReturn=firstLetter.toUpperCase()+toReturn
+    }
+    return toReturn
   }
+  
 }
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
