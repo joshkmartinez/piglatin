@@ -1,7 +1,7 @@
 var express = require('express')
 var app = express()
 const api = express.Router()
-function pigLatin(str) {
+function pigLatinWord(str){
   let strl = str.toLowerCase()
   let caps = false
   if (str[0] != strl[0]) {
@@ -29,6 +29,16 @@ function pigLatin(str) {
     }
     return toReturn
   }
+}
+function pigLatin(str) {
+  let words = str.split(" ")
+  let results = ""
+  for (var i = 0; i < words.length; i++) {
+    
+    results = results+(pigLatinWord(words[i]))+" "
+    console.log(results)
+  } 
+  return results
 }
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
