@@ -3,9 +3,9 @@ var app = express()
 const api = express.Router()
 function pigLatin(str) {
   const strl = str.toLowerCase()
-  const caps = false
+  let caps = false
   if (str[0] != strl[0]) {
-    const caps = true
+    caps = true
   }
   str = str.toLowerCase()
   const vowels = ['a', 'e', 'i', 'o', 'u']
